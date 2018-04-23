@@ -45,9 +45,20 @@ class App {
     }
   }
 
-  movePiece(piece, target) {
-    console.log(this.isEmpty(target));
-
+  movePiece(piece, newLocation) {
+    console.log(newLocation.target);
+    if (this.isEmpty(newLocation)) {
+      const oldLocation = document.getElementById(piece);
+      oldLocation.parentNode.removeChild(oldLocation);
+      const color = piece.split('-')[0];
+      newLocation.target.innerHTML =
+          `<img
+              class="piece ${color}-piece"
+              src="./images/checkers-checker-${color}.svg"
+              alt="${color.charAt(0).toUpperCase() + color.slice(1)} piece"
+              id="${piece}">
+          `
+    }
   }
 
   handleSelect(el) {
