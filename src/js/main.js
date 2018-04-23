@@ -17,7 +17,8 @@ class App {
   constructor() {
     this.pieces = [...document.getElementsByClassName('piece')];
     this.redPieces = [...document.getElementsByClassName('red-piece')];
-    this.blackPieces = [...document.getElementsByClassName('black-piece')]
+    this.blackPieces = [...document.getElementsByClassName('black-piece')];
+    this.gameTiles = [...document.getElementsByClassName('game-tile')]
     this.redScoreView = document.getElementById('red-score');
     this.blackScoreView = document.getElementById('black-score');
     this.redScore = 0;
@@ -27,29 +28,47 @@ class App {
         this.handleSelect(el);
       });
     });
-    this.canMove()
+    this.gameTiles.forEach(el => {
+      el.addEventListener(EventType.CLICK, (a) => {
+        this.movePiece(this.selected, a);
+      })
+    });
+    this.canMove();
+    this.selected = ''
   }
 
-  handleSelect(el) {
-    if ([...el.classList].includes(Modifier.SELECTED)) {
-      el.classList.add(Modifier.MOVABLE);
-      el.classList.remove(Modifier.SELECTED);
+  isEmpty(tile) {
+    if (tile.target.children.length > 0 || tile.target.tagName === 'IMG') {
+      return false;
     } else {
-      this.pieces.forEach(a => a.classList.remove(Modifier.SELECTED));
-      el.classList.add(Modifier.SELECTED);
-      el.classList.remove(Modifier.MOVABLE);
+      return true;
     }
   }
 
+  movePiece(piece, target) {
+    console.log(this.isEmpty(target));
+
+  }
+
+  handleSelect(el) {
+      if ([...el.classList].includes(Modifier.SELECTED)) {
+        el.classList.add(Modifier.MOVABLE);
+        el.classList.remove(Modifier.SELECTED);
+        this.selected = '';
+      } else {
+        this.pieces.forEach(a => a.classList.remove(Modifier.SELECTED));
+        el.classList.add(Modifier.SELECTED);
+        el.classList.remove(Modifier.MOVABLE);
+        this.selected = el.id;
+      }
+  }
+
   canMove(playerTurn) {
+    // Highlights in white which pieces have available moves.
     if (playerTurn === Player.RED) {
-      this.redPieces.slice(0, 4).forEach(a => {
-        a.classList.add(Modifier.MOVABLE);
-      });
+
     } else {
-      this.blackPieces.slice(8).forEach(a => {
-        a.classList.add(Modifier.MOVABLE);
-      });
+
     }
   }
 
