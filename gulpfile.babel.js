@@ -10,6 +10,7 @@ import rename from'gulp-rename';
 import runSequence from 'run-sequence';
 import sass from'gulp-sass';
 import source from'vinyl-source-stream';
+import sourcemaps from'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import eslint from 'gulp-eslint';
 import bs from 'browser-sync';
@@ -40,8 +41,10 @@ gulp.task('scripts', () => {
       .bundle()
       .pipe(source('main.js'))
       .pipe(buffer())
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+      .pipe(sourcemaps.write('./maps'))
       .pipe(rename('main.min.js'))
-      // .pipe(uglify())
       .pipe(gulp.dest('./src/js'))
       .pipe(bs.stream());
 })

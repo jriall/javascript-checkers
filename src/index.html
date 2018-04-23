@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,149 @@
   <title>Javascript Checkers</title>
   <link rel="stylesheet" href="/css/main.min.css">
 </head>
+
 <body>
   <h1>Javascript checkers</h1>
+  <div class="kills-counter">
+      <div class="scores">
+    <img src="./images/checkers-kills-counter.svg" alt="Kills counter">
+      <p class="black-score" id="black-score">0</p>
+      <p class="red-score" id="red-score">0</p>
+    </div>
+  </div>
+  <div class="board">
+    <table>
+      <tr>
+        <td>
+          <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece black-piece" src="/images/checkers-checker-black.svg" alt="Black piece">
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+            <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+        <td></td>
+        <td>
+          <img class="piece red-piece" src="./images/checkers-checker-red.svg" alt="Red piece">
+        </td>
+      </tr>
+    </table>
+  </div>
   <script src="/js/main.min.js"></script>
 </body>
+
 </html>
