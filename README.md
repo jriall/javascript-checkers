@@ -1,0 +1,1 @@
+# A Javascript checkers game
