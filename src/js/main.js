@@ -33,6 +33,13 @@ class App {
     this.currentBoard = STARTING_BOARD;
     this.rows = [...document.getElementsByClassName(ClassName.ROW)];
     this.drawBoard();
+    this.playerTurn = Player.RED;
+    this.tiles = [...document.getElementsByTagName('TD')];
+    this.pieces = [...document.getElementsByClassName('piece')];
+
+    this.tiles.forEach(a => {
+      a.addEventListener(EventType.CLICK, (a) => this.selectPiece(a.target));
+    });
   }
 
   drawBoard() {
@@ -48,6 +55,19 @@ class App {
           }
         })
       });
+  }
+
+  selectPiece(el) {
+    // Check we are selecting a piece and not an empty square,
+    // and check we are selecting a piece which is of the right color
+    if (el.tagName === 'IMG' && [...el.classList].includes(`${this.playerTurn}-piece`)) {
+      const selectedRow = Number(el.parentElement.classList[0].split('-')[1]);
+      const selectedCol = Number(el.parentElement.parentElement.classList[0].split('-')[1]);
+      this.selectedPiece = [selectedRow, selectedCol];
+      this.pieces.forEach(a => a.classList.remove(Modifier.SELECTED));
+      el.classList.add(Modifier.SELECTED);
+      console.log(this.selectedPiece);
+    }
   }
 
   renderPiece(color) {
